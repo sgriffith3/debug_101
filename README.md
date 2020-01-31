@@ -52,32 +52,32 @@ Assuming that you now know enough about how to read your logs, and how to search
 
 The easiest way to do this is to use the **grep** command. This command allows you to search within a specific document (or more than one) for a specified pattern. Since we seem to be having an issue with something involving `v-200-1810`, we can use the same **cat** command, combined with **grep** to view only those errors.
 
-    `sudo cat /var/log/syslog | grep v-200-1810`
+`sudo cat /var/log/syslog | grep v-200-1810`
     
 Looking just at the logs that are relevant to your issue can be incredibly telling. For example, the end of my logs look like this:
 
-Jan 31 09:29:06 sumi-01 systemd-udevd[10902]: Could not generate persistent MAC address for v-200-1810: No such file or directory
-Jan 31 09:29:06 sumi-01 kernel: [5249919.068306] br0: port 8(v-200-1810) entered blocking state
-Jan 31 09:29:06 sumi-01 systemd-networkd[908]: v-200-1810: Gained carrier
-Jan 31 09:29:06 sumi-01 kernel: [5249919.068310] br0: port 8(v-200-1810) entered disabled state
-Jan 31 09:29:06 sumi-01 kernel: [5249919.068460] device v-200-1810 entered promiscuous mode
-Jan 31 09:29:06 sumi-01 kernel: [5249919.068529] br0: port 8(v-200-1810) entered blocking state
-Jan 31 09:29:06 sumi-01 kernel: [5249919.068533] br0: port 8(v-200-1810) entered forwarding state
-Jan 31 09:29:06 sumi-01 systemd-networkd[908]: v-200-1810: Lost carrier
-Jan 31 09:29:06 sumi-01 kernel: [5249919.083081] br0: port 8(v-200-1810) entered disabled state
-Jan 31 09:29:06 sumi-01 kernel: [5249919.083664] device v-200-1810 left promiscuous mode
-Jan 31 09:29:06 sumi-01 kernel: [5249919.083671] br0: port 8(v-200-1810) entered disabled state
-Jan 31 09:29:12 sumi-01 systemd-udevd[10945]: Could not generate persistent MAC address for v-200-1810: No such file or directory
-Jan 31 09:29:12 sumi-01 systemd-networkd[908]: v-200-1810: Gained carrier
-Jan 31 09:29:12 sumi-01 kernel: [5249924.319880] br0: port 8(v-200-1810) entered blocking state
-Jan 31 09:29:12 sumi-01 kernel: [5249924.319884] br0: port 8(v-200-1810) entered disabled state
-Jan 31 09:29:12 sumi-01 kernel: [5249924.320023] device v-200-1810 entered promiscuous mode
-Jan 31 09:29:12 sumi-01 kernel: [5249924.320068] br0: port 8(v-200-1810) entered blocking state
-Jan 31 09:29:12 sumi-01 kernel: [5249924.320071] br0: port 8(v-200-1810) entered forwarding state
-Jan 31 09:29:12 sumi-01 systemd-networkd[908]: v-200-1810: Lost carrier
-Jan 31 09:29:12 sumi-01 kernel: [5249924.333276] br0: port 8(v-200-1810) entered disabled state
-Jan 31 09:29:12 sumi-01 kernel: [5249924.333719] device v-200-1810 left promiscuous mode
-Jan 31 09:29:12 sumi-01 kernel: [5249924.333727] br0: port 8(v-200-1810) entered disabled state
+    Jan 31 09:29:06 sumi-01 systemd-udevd[10902]: Could not generate persistent MAC address for v-200-1810: No such file or directory
+    Jan 31 09:29:06 sumi-01 kernel: [5249919.068306] br0: port 8(v-200-1810) entered blocking state
+    Jan 31 09:29:06 sumi-01 systemd-networkd[908]: v-200-1810: Gained carrier
+    Jan 31 09:29:06 sumi-01 kernel: [5249919.068310] br0: port 8(v-200-1810) entered disabled state
+    Jan 31 09:29:06 sumi-01 kernel: [5249919.068460] device v-200-1810 entered promiscuous mode
+    Jan 31 09:29:06 sumi-01 kernel: [5249919.068529] br0: port 8(v-200-1810) entered blocking state
+    Jan 31 09:29:06 sumi-01 kernel: [5249919.068533] br0: port 8(v-200-1810) entered forwarding state
+    Jan 31 09:29:06 sumi-01 systemd-networkd[908]: v-200-1810: Lost carrier
+    Jan 31 09:29:06 sumi-01 kernel: [5249919.083081] br0: port 8(v-200-1810) entered disabled state
+    Jan 31 09:29:06 sumi-01 kernel: [5249919.083664] device v-200-1810 left promiscuous mode
+    Jan 31 09:29:06 sumi-01 kernel: [5249919.083671] br0: port 8(v-200-1810) entered disabled state
+    Jan 31 09:29:12 sumi-01 systemd-udevd[10945]: Could not generate persistent MAC address for v-200-1810: No such file or directory
+    Jan 31 09:29:12 sumi-01 systemd-networkd[908]: v-200-1810: Gained carrier
+    Jan 31 09:29:12 sumi-01 kernel: [5249924.319880] br0: port 8(v-200-1810) entered blocking state
+    Jan 31 09:29:12 sumi-01 kernel: [5249924.319884] br0: port 8(v-200-1810) entered disabled state
+    Jan 31 09:29:12 sumi-01 kernel: [5249924.320023] device v-200-1810 entered promiscuous mode
+    Jan 31 09:29:12 sumi-01 kernel: [5249924.320068] br0: port 8(v-200-1810) entered blocking state
+    Jan 31 09:29:12 sumi-01 kernel: [5249924.320071] br0: port 8(v-200-1810) entered forwarding state
+    Jan 31 09:29:12 sumi-01 systemd-networkd[908]: v-200-1810: Lost carrier
+    Jan 31 09:29:12 sumi-01 kernel: [5249924.333276] br0: port 8(v-200-1810) entered disabled state
+    Jan 31 09:29:12 sumi-01 kernel: [5249924.333719] device v-200-1810 left promiscuous mode
+    Jan 31 09:29:12 sumi-01 kernel: [5249924.333727] br0: port 8(v-200-1810) entered disabled state
 
 Although I am just sharing this much output, I promise you there is a lot more that occured before these. This reveals to me that this issue has been occuring regularly, and that means I had better look into fixing this process, or at least stopping it to free up my system resources.
     
